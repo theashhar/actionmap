@@ -84,22 +84,37 @@ export const HeroImages = [
   ]
 export const pricing = [
   {
-    title: "Stripe",
+    title: "Free",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
+      `✔️ 3 Free Automations
+      ✔️ 100 Tasks/month
+      ✔️ 2 Step Actions
+      `,
     link: "https://stripe.com",
+    price: 0,
+    CTAText: 'Active'
   },
   {
-    title: "Netflix",
+    title: "Base",
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+    `✔️ 20 Automations
+    ✔️ 1000 Tasks/month
+    ✔️ 6 Step Actions
+    `,
     link: "https://netflix.com",
+    price: 660,
+    CTAText: 'Get Started'
   },
   {
-    title: "Google",
+    title: "Premium",
     description:
-      "A multinational technology company that specializes in Internet-related services and products.",
+    `✔️ 50 Automations
+    ✔️ Unlimited Tasks/month
+    ✔️ 20 Step Actions
+    `,
     link: "https://google.com",
+    price: 990,
+    CTAText: 'Get Started'
   },
   ]
 

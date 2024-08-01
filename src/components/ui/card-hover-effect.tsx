@@ -12,6 +12,8 @@ export const PriceCart = ({
     title: string;
     description: string;
     link: string;
+    price: number;
+    CTAText: string;
   }[];
   className?: string;
 }) => {
@@ -20,7 +22,7 @@ export const PriceCart = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mt-64 mx-10 md:mx-32 xl:mx-64 ",
         className
       )}
     >
@@ -28,7 +30,7 @@ export const PriceCart = ({
         <Link
           href={item?.link}
           key={item?.link}
-          className="relative group  block p-2 h-full w-full"
+          className="relative group  block p-2 h-full w-full cursor-default"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -51,7 +53,18 @@ export const PriceCart = ({
           </AnimatePresence>
           <Card>
             <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <h1 className="text-4xl">₹{item.price}</h1>
+            <CardDescription>
+              <ul>
+                
+              {item.description.split('\n').map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+              </ul>
+              </CardDescription>
+              <button className="px-4 py-1 mt-12 rounded-full border border-neutral-300 bg-violet-200 font-bold text-neutral-900 text-sm hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
+              {item.CTAText}
+            </button>
           </Card>
         </Link>
       ))}

@@ -6,6 +6,7 @@ import { clients, HeroImages, pricing } from "@/lib/constants";
 import Image from "next/image";
 import { PriceCart } from "@/components/ui/card-hover-effect";
 import LampOverLight from "@/components/ui/lamp";
+// import Sidebar from "@/components/sidebar";
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
         direction="right"
         speed="slow"
       />
+      {/* <Sidebar /> */}
       <HeroParallax products={HeroImages} />
       <LampOverLight />
       <PriceCart items={pricing} />
