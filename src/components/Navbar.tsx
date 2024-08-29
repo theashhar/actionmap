@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import {MenuIcon} from 'lucide-react'
+import { ModeToggle } from './modeToggle'
 
 export default async function Navbar() {
   return (
@@ -36,8 +37,8 @@ export default async function Navbar() {
           </li>
         </ul>
       </nav>
-
       <aside className='flex items-center gap-4'>
+      <ModeToggle />
         <Link
         href='/dashboard'
         >

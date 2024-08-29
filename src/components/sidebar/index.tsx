@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/tooltip"
 import { House, Zap, Settings, Blocks, CreditCard, CloudDownload, FileCheck2, LucideMousePointerClick, GitBranch, Database } from 'lucide-react';
 import { Separator } from "@/components/ui/separator"
+import { ModeToggle } from '../modeToggle'
 
 type Props = {}
 type IconName = 'House' | 'Zap' | 'Settings' | 'Blocks' | 'CreditCard' | 'CloudDownload' | 'FileCheck2';
@@ -26,19 +27,19 @@ const Sidebar = (props: Props) => {
 
   // Array of icons with their respective names
   const icons = [
-    { name: 'House', component: House, tooltip: 'Home', link:'' },
-    { name: 'Zap', component: Zap, tooltip: 'Workflows', link:'' },
-    { name: 'Settings', component: Settings, tooltip: 'Settings', link:'' },
-    { name: 'Blocks', component: Blocks, tooltip: 'Category', link:'' },
-    { name: 'CreditCard', component: CreditCard, tooltip: 'Payment', link:'' },
-    { name: 'CloudDownload', component: CloudDownload, tooltip: 'Cloud Download', link:'' },
+    { name: 'House', component: House, tooltip: 'Home', link:'/dashboard' },
+    { name: 'Zap', component: Zap, tooltip: 'Workflows', link:'/workflows' },
+    { name: 'Settings', component: Settings, tooltip: 'Settings', link:'/settings' },
+    { name: 'Blocks', component: Blocks, tooltip: 'Category', link:'/connections' },
+    { name: 'CreditCard', component: CreditCard, tooltip: 'Payment', link:'/billing' },
+    { name: 'CloudDownload', component: CloudDownload, tooltip: 'Cloud Download', link:'/templates' },
     { name: 'FileCheck2', component: FileCheck2, tooltip: 'Clipboard', link:'/' },
   ];
   const pathName = usePathname()
-  return (
-    <nav className='dark:bg-black h-screen flex justify-between items-start gap-12 px-4 py-8 '>
+  return (<>
+    <nav className='dark:bg-black h-full flex justify-between items-start gap-12 px-4 py-4 overflow-y-scroll no-scrollbar'>
       <div className='flex items-center justify-center flex-col gap-6'>
-        <Link className='flex pb-8'
+      <Link className='flex pb-8'
         href='/'>
           <Image
             src='/actionmapLogoLight.svg'
@@ -51,7 +52,7 @@ const Sidebar = (props: Props) => {
         </Link>
         <TooltipProvider>
         {icons.map(({ name, component: IconComponent, tooltip, link }) => (
-          <Link href={link} >          
+          <Link href={link} key={name} >          
             <Tooltip key={name}>
               <TooltipTrigger
                 onClick={() => handleIconClick(name as IconName)}
@@ -95,13 +96,12 @@ const Sidebar = (props: Props) => {
         <GitBranch size={16} color="#E3D5FF" />
       </div>
 
-
-
     </div>
 
+    <ModeToggle />
       </div>
     </nav>
-  )
+  </>)
 }
 
 export default Sidebar
